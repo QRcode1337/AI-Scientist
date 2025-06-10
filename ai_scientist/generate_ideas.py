@@ -416,6 +416,7 @@ def check_idea_novelty(
                 papers = search_for_papers(query, result_limit=10)
                 if papers is None:
                     papers_str = "No papers found."
+                    continue
 
                 paper_strings = []
                 for i, paper in enumerate(papers):
