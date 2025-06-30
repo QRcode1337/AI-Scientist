@@ -318,7 +318,7 @@ def get_citation_aider_prompt(
         print(f"Error: {e}")
         return None, False
 
-    if papers is None:
+    if not papers:
         print("No papers found.")
         return None, False
 
