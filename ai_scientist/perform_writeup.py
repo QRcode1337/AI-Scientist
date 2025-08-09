@@ -78,7 +78,7 @@ If duplicated, identify the best location for the section header and remove any 
         # Filter trivial bugs in chktex
         check_output = os.popen(f"chktex {writeup_file} -q -n2 -n24 -n13 -n1").read()
         if check_output:
-            prompt = f"""Please fix the following LaTeX errors in `template.tex` guided by the output of `chktek`:
+            prompt = f"""Please fix the following LaTeX errors in `template.tex` guided by the output of `chktex`:
 {check_output}.
 
 Make the minimal fix required and do not remove or change any packages.
