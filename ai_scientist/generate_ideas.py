@@ -414,24 +414,10 @@ def check_idea_novelty(
                 ## SEARCH FOR PAPERS
                 query = json_output["Query"]
                 papers = search_for_papers(query, result_limit=10)
-                if papers is None:
+                if not papers:
                     papers_str = "No papers found."
-                    continue
-
-                paper_strings = []
-                for i, paper in enumerate(papers):
-                    paper_strings.append(
-                        """{i}: {title}. {authors}. {venue}, {year}.\nNumber of citations: {cites}\nAbstract: {abstract}""".format(
-                            i=i,
-                            title=paper["title"],
-                            authors=paper["authors"],
-                            venue=paper["venue"],
-                            year=paper["year"],
-                            cites=paper["citationCount"],
-                            abstract=paper["abstract"],
                         )
-                    )
-                papers_str = "\n\n".join(paper_strings)
+                    papers_str = "\n\n".join(paper_strings)
 
             except Exception as e:
                 print(f"Error: {e}")
