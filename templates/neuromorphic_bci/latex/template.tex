@@ -1,0 +1,35 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{times}
+\usepackage{hyperref}
+
+\title{Neuromorphic BCI: Baseline Study with Synthetic Spiking Data}
+\author{AI Scientist}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We present a minimal baseline for neuromorphic Brain-Computer Interfaces using synthetic spiking data and lightweight decoding. This template is intended for rapid iteration and safe experimentation without clinical data.
+\end{abstract}
+
+\section{Introduction}
+Neuromorphic BCI focuses on event-based neural signals and efficient decoders under tight latency and power constraints. We simulate Poisson-like spikes with class-dependent spatial and temporal structure to provide a toy yet informative benchmark for method development.
+
+\section{Methods}
+We generate synthetic spike trains over channels and time bins. Rate parameters vary by class across channels and time to create separable structure. A linear decoder is trained on aggregated spike features.
+
+\section{Results}
+The baseline reports accuracy and training losses. Plots such as spike rasters and learning curves are included.
+
+\section{Discussion and Limitations}
+This template uses only synthetic data and is not intended for clinical use. It provides a convenient sandbox for comparing coding schemes and decoders, and for exploring robustness to noise or dropout.
+
+\section{Conclusion}
+The template offers a simple starting point for neuromorphic BCI research automation in AI Scientist.
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}
