@@ -1,0 +1,24 @@
+{
+  "template_name": "quantum_topology_3d",
+  "domain_context": "3D topological quantum error correction (toy models). We simulate small 3D lattices with i.i.d. noise to study qualitative threshold-like behavior and decoding heuristics under strict CPU constraints.",
+  "objectives": [
+    "Propose and implement lightweight 3D decoding heuristics (local pairing, simple clustering) that improve logical error rates.",
+    "Explore finite-size effects and threshold-like behavior by sweeping physical error p and lattice size L within tight runtime budgets.",
+    "Design clear, layperson-friendly plots (LER vs p curves with annotations; slice montages of defect fields).",
+    "Maintain deterministic seeds and CPU-only operation to keep iteration fast and reproducible."
+  ],
+  "constraints": [
+    "No heavy dependencies; stick to numpy/matplotlib unless specifically approved.",
+    "Keep runtime short (seconds to a couple minutes) by using small L, few p points, and modest trial counts.",
+    "Use toy models that are transparent and easy to modify; do not claim hardware relevance.",
+    "Ensure final_info.json includes {\"accuracy\": {\"means\": <float>}} computed as 1 - LER at a reference p."
+  ],
+  "suggested_improvements": [
+    "Compare slice-wise local pairing vs simple 3D clustering; report accuracy-runtime tradeoffs.",
+    "Investigate biased noise (X/Z asymmetry proxy) and bias-aware heuristics.",
+    "Apply simple spatial denoising filters to defect fields before decoding.",
+    "Perform small finite-size scaling experiments to estimate pseudo-thresholds.",
+    "Add uncertainty estimates (standard error) across trials for each p."
+  ],
+  "ethics_and_safety": "This is a toy research environment aimed at conceptual understanding and algorithmic exploration. Avoid overstating claims; highlight approximations and limitations."
+}

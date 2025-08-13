@@ -1,0 +1,37 @@
+[
+  {
+    "Name": "FiniteSizeScaling3D",
+    "Title": "Finite-Size Scaling to Estimate Pseudo-Thresholds in 3D Toy Codes",
+    "Experiment": "Sweep p over a small grid for L in {6,8,10} with modest trials; fit crossing behavior to extract a pseudo-threshold and confidence interval.",
+    "Interestingness": 8,
+    "Feasibility": 7
+  },
+  {
+    "Name": "BiasAwareHeuristics",
+    "Title": "Bias-Aware Local Decoders for Asymmetric Noise",
+    "Experiment": "Introduce a biased noise proxy and test local pairing rules that weight directions differently; compare to unbiased baseline.",
+    "Interestingness": 7,
+    "Feasibility": 8
+  },
+  {
+    "Name": "SyndromeDenoising3D",
+    "Title": "Spatial Denoising of 3D Defect Fields Prior to Decoding",
+    "Experiment": "Apply simple 3D filters (e.g., 3×3×3 majority) before decoding and measure impact on LER vs p under tight compute budgets.",
+    "Interestingness": 7,
+    "Feasibility": 8
+  },
+  {
+    "Name": "SliceVs3DDecoding",
+    "Title": "Layered Slice-Wise Pairing vs. Single-Pass 3D Clustering",
+    "Experiment": "Implement a slice-wise pairing heuristic and compare against simple 3D clustering on runtime and LER.",
+    "Interestingness": 8,
+    "Feasibility": 7
+  },
+  {
+    "Name": "UncertaintyEstimates",
+    "Title": "Variance-Aware LER Curves with Trial-Based Standard Errors",
+    "Experiment": "Track and plot standard errors for LER across trials; evaluate how many trials are needed for stable estimates at each p.",
+    "Interestingness": 6,
+    "Feasibility": 9
+  }
+]
