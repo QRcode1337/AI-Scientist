@@ -235,6 +235,20 @@ The 2D Diffusion template used code from [tiny-diffusion](https://github.com/tan
 The Grokking template used code from [Sea-Snell/grokking](https://github.com/Sea-Snell/grokking) and [danielmamay/grokking](https://github.com/danielmamay/grokking).
 
 We would like to thank the developers of the open-source models and packages for their contributions and for making their work available.
+### Additional Templates in this repository
+
+- templates/neuromorphic_bci — neuromorphic Brain-Computer Interface template (synthetic spike trains, CPU-friendly baseline)
+- templates/quantum_topology_3d — toy 3D topological quantum error-correction exploration (percolation-like baseline)
+
+Quickstart for quantum_topology_3d:
+```bash
+cd templates/quantum_topology_3d
+python experiment.py --out_dir run_0 --tiny
+python plot.py --in_dir run_0
+```
+
+Artifacts: run_0/final_info.json, run_0/metrics.json, run_0/curve.png, run_0/slices.png
+
 
 ## Citing The AI Scientist
 
