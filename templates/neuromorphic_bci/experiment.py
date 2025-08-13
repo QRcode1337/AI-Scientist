@@ -1,3 +1,5 @@
+
+
 import argparse
 import json
 import os
@@ -77,9 +79,16 @@ class SimpleSpikeDecoder(nn.Module):
         return self.linear(x)
 
 
-def make_features(spikes: np.ndarray, agg: str = "sum"):
-    if agg == "sum":
-        features = spikes.sum(axis=2)  # [N, Ch]
+def make_features(spikes: np.ndarray, agg: str = "sum", num_bins: int = 1):
+    if agg == "binned" and num_bins > 1:
+        N, Ch, T = spikes.shape
+        splits = np.array_split(np.arange(T), num_bins)
+        feats = []
+        for idxs in splits:
+            feats.append(spikes[:, :, idxs].sum(axis=2))
+        features = np.concatenate(feats, axis=1)
+    elif agg == "sum":
+        features = spikes.sum(axis=2)
     elif agg == "mean":
         features = spikes.mean(axis=2)
     else:
@@ -163,11 +172,12 @@ def main():
     parser.add_argument("--test_samples", type=int, default=300)
     parser.add_argument("--base_rate_hz", type=float, default=5.0)
     parser.add_argument("--class_rate_delta_hz", type=float, default=3.0)
-    parser.add_argument("--epochs", type=int, default=10)
+    parser.add_argument("--epochs", type=int, default=5)
     parser.add_argument("--lr", type=float, default=1e-2)
     parser.add_argument("--weight_decay", type=float, default=1e-4)
     parser.add_argument("--seed", type=int, default=42)
-    parser.add_argument("--agg", type=str, default="sum", choices=["sum", "mean", "flatten"])
+    parser.add_argument("--agg", type=str, default="sum", choices=["sum", "mean", "flatten", "binned"])
+    parser.add_argument("--num_bins", type=int, default=1)
     parser.add_argument("--tiny", action="store_true")
     args = parser.parse_args()
 
@@ -209,8 +219,8 @@ def main():
     np.save(osp.join(args.out_dir, "spikes_test.npy"), spikes_te[: min(64, len(spikes_te))])
     np.save(osp.join(args.out_dir, "labels_test.npy"), yte[: min(64, len(yte))])
 
-    Xtr = make_features(spikes_tr, agg=args.agg)
-    Xte = make_features(spikes_te, agg=args.agg)
+    Xtr = make_features(spikes_tr, agg=args.agg, num_bins=args.num_bins)
+    Xte = make_features(spikes_te, agg=args.agg, num_bins=args.num_bins)
 
     metrics, history = train_and_eval(
         Xtr, ytr, Xte, yte, n_classes=args.n_classes, epochs=args.epochs, lr=args.lr, weight_decay=args.weight_decay
