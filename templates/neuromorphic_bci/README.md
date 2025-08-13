@@ -22,14 +22,25 @@ DISCLAIMER: This template uses synthetic data only and is not intended for clini
 1) Baseline run
 ```
 cd templates/neuromorphic_bci
+# Faster tiny baseline
 python experiment.py --out_dir run_0 --tiny
 python plot.py --in_dir run_0
+
+# Improved baseline with coarse temporal bins and 5 epochs
+python experiment.py --out_dir run_bins --epochs 5 --agg binned --num_bins 4 --time_bins 200
+python plot.py --in_dir run_bins
 ```
 
 Artifacts:
-- run_0/final_info.json (e.g., {"accuracy": {"means": 0.65}})
-- run_0/metrics.json
-- run_0/raster.png, run_0/metrics.png
+- run_0 or run_bins/final_info.json (e.g., {"accuracy": {"means": 0.65}})
+- run_0 or run_bins/metrics.json
+- run_0 or run_bins/raster.png, metrics.png
+
+Flags:
+- --agg {sum, mean, flatten, binned}
+- --num_bins N (used when --agg binned; recommended 3–5)
+- --epochs default 5
+- --max_channels_display for plot.py
 
 2) Launch AI Scientist
 Ensure your API keys are set as described in the project README, then:
