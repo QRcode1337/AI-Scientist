@@ -4,6 +4,7 @@
   <b>The AI Scientist: Towards Fully Automated</b><br>
   <b>Open-Ended Scientific Discovery 🧑‍🔬</b><br>
 </h1>
+<!-- Internal: verification change (no functional impact) -->
 
 <p align="center">
   📚 <a href="https://arxiv.org/abs/2408.06292">[Paper]</a> |
