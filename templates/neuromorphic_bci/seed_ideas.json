@@ -1,0 +1,37 @@
+[
+  {
+    "Name": "LowPowerRateCoding",
+    "Title": "Energy-Efficient Rate Coding for Synthetic Neuromorphic BCI",
+    "Experiment": "Use rate-coded spike counts per channel with a linear decoder; sweep bin sizes and evaluate accuracy/compute trade-offs on synthetic classes.",
+    "Interestingness": 7,
+    "Feasibility": 9
+  },
+  {
+    "Name": "LatencyAwareDecoding",
+    "Title": "Latency-Aware Spike Decoding with Lightweight Temporal Filters",
+    "Experiment": "Introduce simple temporal filtering (moving average, exponential) prior to linear decoding; measure latency vs. accuracy on synthetic spike streams.",
+    "Interestingness": 8,
+    "Feasibility": 8
+  },
+  {
+    "Name": "RobustnessToDropout",
+    "Title": "Robust Neuromorphic BCI Under Spike Dropout and Noise",
+    "Experiment": "Simulate spike dropout/jitter and compare robustness across binning strategies and regularization settings; report accuracy degradation curves.",
+    "Interestingness": 8,
+    "Feasibility": 8
+  },
+  {
+    "Name": "TimeToFirstSpike",
+    "Title": "Time-to-First-Spike Versus Rate Coding for Class Separation",
+    "Experiment": "Compute time-to-first-spike features per channel and compare against rate coding for multiclass synthetic tasks under low compute budget.",
+    "Interestingness": 8,
+    "Feasibility": 7
+  },
+  {
+    "Name": "ChannelSelection",
+    "Title": "Sparse Channel Selection for Neuromorphic Decoders",
+    "Experiment": "Evaluate simple channel selection heuristics (variance, mutual info proxy) to reduce input dimensionality while maintaining accuracy.",
+    "Interestingness": 7,
+    "Feasibility": 8
+  }
+]

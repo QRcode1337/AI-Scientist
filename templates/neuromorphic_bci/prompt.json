@@ -1,0 +1,23 @@
+{
+  "template_name": "neuromorphic_bci",
+  "domain_context": "Neuromorphic Brain-Computer Interfaces (BCI) using spiking/event-based signals and lightweight decoders suitable for low-latency, low-power settings. Emphasis on synthetic, non-clinical datasets for safe experimentation.",
+  "objectives": [
+    "Propose improvements to experiment.py to explore spike encodings (rate, time-to-first-spike, latency coding) without adding heavy dependencies.",
+    "Tune decoder and preprocessing to improve accuracy and robustness to spike dropout/noise while keeping runtime within seconds on CPU.",
+    "Design plots in plot.py to better visualize spiking patterns and decoding performance.",
+    "When writing papers (latex/template.tex), clearly describe data generation, model, metrics, and limitations."
+  ],
+  "constraints": [
+    "Do not add large or specialized external dependencies unless explicitly requested.",
+    "Keep runtime small and deterministic for rapid iteration.",
+    "Use only synthetic/toy data; avoid real/clinical BCI data or medical claims.",
+    "Ensure outputs include final_info.json with {'accuracy': {'means': <float>} } for baseline compatibility."
+  ],
+  "ethics_and_safety": "This template uses synthetic data and is not intended for clinical decision-making. Avoid medical claims. Focus on method development and benchmarking under simulated conditions.",
+  "suggested_improvements": [
+    "Evaluate different spike bin sizes and simple temporal filters.",
+    "Compare linear vs. shallow non-linear decoders while tracking compute cost.",
+    "Assess robustness to noise, jitter, and spike dropout with controlled perturbations.",
+    "Explore event sparsity effects and class separability across channels."
+  ]
+}
