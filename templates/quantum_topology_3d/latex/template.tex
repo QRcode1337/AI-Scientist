@@ -1,0 +1,30 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\title{Exploring Toy 3D Topological Error Correction Under CPU Constraints}
+\author{AI Scientist}
+\date{\today}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We explore toy 3D topological quantum error-correction behavior using small, CPU-friendly simulations. Our baseline studies threshold-like behavior via logical error rates (LER) computed from synthetic defect fields and simple decoders.
+\end{abstract}
+
+\section{Introduction}
+We consider simplified 3D lattices with i.i.d.\ noise that generate defect fields (toy proxies for syndromes). The focus is on qualitative trends and decoder heuristics suitable for fast iteration.
+
+\section{Methods}
+We generate 3D binary grids with error probability $p$, identify connected clusters, and estimate logical error rates via spanning-cluster probability across axes. This provides a proxy for threshold-like behavior at small sizes.
+
+\section{Results}
+We report LER vs.\ $p$ curves for small lattice sizes and visualize sample configurations via slice montages.
+
+\section{Discussion}
+We discuss trade-offs between runtime and estimation quality, and outline future directions (bias-aware heuristics, finite-size scaling, slice-wise decoders).
+
+\section{Limitations}
+This is a toy model; results are not hardware claims and do not represent any specific code implementation.
+
+\end{document}
